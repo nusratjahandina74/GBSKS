@@ -8,7 +8,7 @@ export default function Home() {
           Helping Poor Children Build a Better Future
         </h1>
         <p className="text-lg max-w-2xl mb-10">
-          Mandag BSKS works with education, healthcare and vocational training
+          GBSKS works with education, healthcare and vocational training
           for underprivileged children in Bangladesh.
         </p>
 

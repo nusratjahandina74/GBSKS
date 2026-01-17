@@ -1,16 +1,7 @@
-import Sidebar from "../../components/admin/Sidebar";
-import DashboardCards from "../../components/admin/DashboardCards";
-import DonationTable from "../../components/admin/DonationTable";
-
 export default function Dashboard() {
   return (
-    <div className="flex bg-gray-100 dark:bg-gray-900 min-h-screen">
-      <Sidebar />
-
-      <main className="flex-1 p-8">
-        <DashboardCards />
-        <DonationTable />
-      </main>
+    <div className="min-h-screen flex items-center justify-center">
+      <h1 className="text-2xl font-bold">Admin Dashboard Coming Soon</h1>
     </div>
   );
 }
