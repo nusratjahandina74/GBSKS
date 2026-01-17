@@ -17,7 +17,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-white flex items-center justify-center">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 flex items-center justify-center">
       <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-xl w-full max-w-lg">
         <h2 className="text-3xl font-bold mb-6 text-center">
           Contact Us

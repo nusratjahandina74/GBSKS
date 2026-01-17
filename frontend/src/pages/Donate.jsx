@@ -18,7 +18,7 @@ export default function Donate() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen flex items-center justify-center bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
       <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow w-96">
         <h2 className="text-2xl font-bold mb-4 text-center">
           Donate Now

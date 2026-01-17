@@ -2,7 +2,7 @@ import SectionTitle from "../components/SectionTitle";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
       <div className="max-w-7xl mx-auto px-4 py-20">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Helping Poor Children Build a Better Future

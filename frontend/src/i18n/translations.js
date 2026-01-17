@@ -1,16 +1,22 @@
-export default {
+const translations = {
   en: {
-    donate: "Donate Now",
-    projects: "Our Projects",
-    contact: "Contact Us",
-    dashboard: "Admin Dashboard",
-    totalDonation: "Total Donation",
+    home: "Home",
+    projects: "Projects",
+    about: "About",
+    contact: "Contact",
+    login: "Login",
+    ourProjects: "Our Projects",
+    donate: "Donate",
   },
   de: {
-    donate: "Jetzt spenden",
-    projects: "Unsere Projekte",
+    home: "Startseite",
+    projects: "Projekte",
+    about: "Über uns",
     contact: "Kontakt",
-    dashboard: "Admin-Dashboard",
-    totalDonation: "Gesamtspenden",
+    login: "Admin Login",
+    ourProjects: "Unsere Projekte",
+    donate: "Spenden",
   },
 };
+
+export default translations;
