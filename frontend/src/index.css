@@ -4,4 +4,9 @@
 
 body {
   @apply bg-white dark:bg-gray-900;
+  font-family: 'Poppins', sans-serif;
+ 
+}
+html {
+  scroll-behavior: smooth;
 }
