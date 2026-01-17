@@ -32,34 +32,34 @@ export default function Navbar() {
       </Link>
 
       {/* CENTER: Links */}
-      <div className="flex-1 flex justify-center">
-        <div className="flex gap-10 text-[16px] font-medium">
-          <Link to="/" className={isActive("/") ? "font-semibold" : ""}>
-            {t("home")}
-          </Link>
+    {/* CENTER: Links */}
+<div className="flex-1 flex justify-center">
+  <div className="flex gap-10 text-[16px] font-medium">
+    <Link to="/" className={isActive("/") ? "font-semibold" : ""}>
+      {t("home")}
+    </Link>
 
-          <Link
-            to="/projects"
-            className={isActive("/projects") ? "font-semibold" : ""}
-          >
-            {t("projects")}
-          </Link>
+    <Link to="/about" className={isActive("/about") ? "font-semibold" : ""}>
+      {t("about")}
+    </Link>
 
-          <Link
-            to="/about"
-            className={isActive("/about") ? "font-semibold" : ""}
-          >
-            {t("about")}
-          </Link>
+    <Link to="/projects" className={isActive("/projects") ? "font-semibold" : ""}>
+      {t("projects")}
+    </Link>
 
-          <Link
-            to="/contact"
-            className={isActive("/contact") ? "font-semibold" : ""}
-          >
-            {t("contact")}
-          </Link>
-        </div>
-      </div>
+    {/* Donate শুধু তখনই দেখাবে যখন admin login করা নেই */}
+    {!isAdmin && (
+      <Link to="/donate" className={isActive("/donate") ? "font-semibold" : ""}>
+        {t("donate")}
+      </Link>
+    )}
+
+    <Link to="/contact" className={isActive("/contact") ? "font-semibold" : ""}>
+      {t("contact")}
+    </Link>
+  </div>
+</div>
+
 
       {/* RIGHT: Actions */}
       <div className="min-w-[180px] flex justify-end gap-3 items-center">

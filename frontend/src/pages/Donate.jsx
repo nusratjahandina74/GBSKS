@@ -1,43 +1,79 @@
 import { useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { addLocalDonation } from "../utils/donationsStore";
 
 export default function Donate() {
-  const [amount, setAmount] = useState(10);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [amountUSD, setAmountUSD] = useState("");
+  const navigate = useNavigate(); // 👈 যোগ হলো
 
-  const donateNow = async () => {
-    const res = await axios.post(
-      "http://localhost:5000/api/payment/checkout",
-      {
-        amountUSD: amount,
-        projectId: "PROJECT_ID",
-        name: "Donor",
-        email: "donor@email.com",
-      }
-    );
-    window.location.href = res.data.url;
+  const USD_TO_BDT = 110; // demo rate (later API)
+
+  const handleDonate = (e) => {
+    e.preventDefault();
+
+    const usd = Number(amountUSD || 0);
+    const bdt = usd * USD_TO_BDT;
+
+    addLocalDonation({
+      id: crypto.randomUUID(),
+      name,
+      email,
+      amountUSD: usd,
+      amountBDT: bdt,
+      method: "Card",
+      status: "PAID",
+      createdAt: new Date().toISOString(),
+    });
+
+    alert("Donation saved (demo). Thank you!");
+    setName("");
+    setEmail("");
+    setAmountUSD("");
+
+    navigate("/"); // 👈 Donate শেষ হলে Home এ যাবে
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-      <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow w-96">
-        <h2 className="text-2xl font-bold mb-4 text-center">
-          Donate Now
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex items-center justify-center p-6">
+      <form
+        onSubmit={handleDonate}
+        className="w-full max-w-md bg-gray-100 dark:bg-gray-800 p-8 rounded-xl"
+      >
+        <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+          Donate (Demo)
         </h2>
 
         <input
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          className="w-full p-3 border rounded mb-4"
+          className="w-full p-3 mb-4 rounded border bg-white dark:bg-transparent dark:text-white dark:border-gray-600"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
 
-        <button
-          onClick={donateNow}
-          className="w-full bg-green-600 text-white py-3 rounded hover:bg-green-700"
-        >
-          Donate ${amount}
+        <input
+          className="w-full p-3 mb-4 rounded border bg-white dark:bg-transparent dark:text-white dark:border-gray-600"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <input
+          className="w-full p-3 mb-4 rounded border bg-white dark:bg-transparent dark:text-white dark:border-gray-600"
+          placeholder="Amount (USD)"
+          value={amountUSD}
+          onChange={(e) => setAmountUSD(e.target.value)}
+        />
+
+        <button className="w-full bg-blue-600 text-white py-2 rounded">
+          Donate
         </button>
-      </div>
+
+        <p className="text-xs mt-3 text-gray-600 dark:text-gray-300">
+          * Demo mode: saves into localStorage. Backend connect then real payment start.
+        </p>
+      </form>
     </div>
   );
 }

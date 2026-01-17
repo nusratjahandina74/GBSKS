@@ -1,14 +1,16 @@
+import { Link } from "react-router-dom";
+
 export default function Sidebar() {
   return (
-    <aside className="w-64 min-h-screen bg-gray-900 text-white p-6">
-      <h1 className="text-2xl font-bold mb-8">GBSKS Admin</h1>
+    <aside className="w-64 hidden md:block bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-6">
+      <div className="font-bold text-xl mb-8 text-gray-900 dark:text-white">
+        Admin Panel
+      </div>
 
-      <ul className="space-y-4">
-        <li className="hover:text-green-400 cursor-pointer">Dashboard</li>
-        <li className="hover:text-green-400 cursor-pointer">Donations</li>
-        <li className="hover:text-green-400 cursor-pointer">Projects</li>
-        <li className="hover:text-green-400 cursor-pointer">Logout</li>
-      </ul>
+      <nav className="space-y-3 text-gray-700 dark:text-gray-200">
+        <Link className="block hover:opacity-80" to="/admin">Dashboard</Link>
+        <Link className="block hover:opacity-80" to="/">Back to Site</Link>
+      </nav>
     </aside>
   );
 }
